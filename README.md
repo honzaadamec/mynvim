@@ -1,0 +1,87 @@
+# Neovim Key Mappings Cheatsheet
+
+### Telescope (lua/plugins/telescope.lua)
+- **Buffers:**
+  - `<leader>tb`: List open buffers
+- **Files:**
+  - `<leader>to`: Open recent files
+  - `<leader>tf`: Find files
+  - `<C-p>`: Find Git-tracked files
+- **Git:**
+  - `<leader>tlb`: List local Git branches
+  - `<leader>tlrb`: List all Git branches
+- **Search:**
+  - `<leader>tgg`: Live grep with arguments
+  - `<leader>tgs`: Search for string under cursor
+- **Help:**
+  - `<leader>th`: Search help tags
+- **Commands:**
+  - `<leader>tc`: List available commands
+- **LSP:**
+  - `<leader>ts`: Search document symbols
+### LSP (lua/plugins/lsp.lua)
+  - `<leader>de`: Add only errors to quickfix list
+  - `<leader>e`: Open diagnostic float
+  - `[d`: Go to previous diagnostic
+  - `]d`: Go to next diagnostic
+  - `<leader>dl`: Add diagnostics to quickfix list
+- **Code Navigation:**
+  - `gd`: Go to definition
+  - `K`: Hover documentation
+  - `<leader>gr`: Find references
+- **Code Actions:**
+  - `<leader>ca`: Show code actions
+  - `<leader>rn`: Rename symbol
+- **Signature Help:**
+  - `<C-h>` (Insert mode): Show signature help
+- **Diagnostics Configuration:**
+  - Virtual text enabled
+  - Signs disabled
+---
+
+### Additional Plugins (lua/plugins/)
+- **Formatter:**
+  - `<leader>f`: Format file
+- **Harpoon:**
+  - `<leader>a`: Add file to Harpoon
+  - `<C-e>`: Toggle Harpoon menu
+  - `<C-h>`, `<C-j>`, `<C-k>`, `<C-l>`: Navigate Harpoon marks
+- **CopilotChat:**
+  - `<leader>cc`: Chat with Copilot
+  - `<leader>ce`: Explain code
+  - `<leader>cr`: Review code
+  - `<leader>cf`: Fix code issues
+  - `<leader>co`: Optimize code
+  - `<leader>cd`: Generate documentation
+  - `<leader>ct`: Generate tests
+  - `<leader>cm`: Generate commit message
+  - `<leader>cs`: Generate commit message for selection
+### General Mappings (lua/me/remap.lua)
+- **Window Navigation:**
+  - `<leader>h`: Move to left window
+  - `<leader>j`: Move to bottom window
+  - `<leader>k`: Move to top window
+  - `<leader>l`: Move to right window
+- **Splits:**
+  - `<leader>sv`: Vertical split
+  - `<leader>sh`: Horizontal split
+- **Text Movement:**
+  - `J` (Visual mode): Move selected text down
+  - `K` (Visual mode): Move selected text up
+- **Paste:**
+  - `p` (Visual mode): Paste without overwriting register
+- **Scrolling:**
+  - `<C-d>`: Scroll down and center
+  - `<C-u>`: Scroll up and center
+- **Quickfix Navigation:**
+  - `<S-d>`: Next quickfix item
+  - `<S-u>`: Previous quickfix item
+- **File Explorer:**
+  - `<leader>ee`: Open Netrw file explorer
+  - `<leader>o`: Open current file in system file explorer
+- **Clipboard:**
+  - `<leader>y` (Visual mode): Yank to system clipboard
+- **Formatting:**
+  - `<leader>f`: Format file using LSP
+- **Miscellaneous:**
+  - `<C-n>`: Open Netrw file explorer
