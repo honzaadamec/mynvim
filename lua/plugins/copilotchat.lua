@@ -9,6 +9,7 @@ return {
 		lazy = false,
 		opts = {
 			-- See Configuration section for options
+                        defualt_model = "claude-3.7",
 			on_attach = function(client, bufnr)
 				-- Attach Copilot to the buffer when it is loaded
 				vim.api.nvim_create_autocmd("BufEnter", {

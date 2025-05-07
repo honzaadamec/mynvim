@@ -23,7 +23,5 @@ vim.keymap.set("n", "<S-u>", "<cmd>cprev<CR>zz")
 
 local opts = { noremap = true, silent = true }
 vim.keymap.set("v", "<leader>y", '"+y', opts)
-vim.keymap.set("n", "<leader>ee", ":Explore<CR>", { noremap = true, silent = true })
-
-
+vim.keymap.set("n", "<leader>yp", ":let @+ = expand('%:p')<CR>", opts)
 

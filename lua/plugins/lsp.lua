@@ -10,19 +10,20 @@ return {
     -- bridges the gap between mason and lspconfig
     "williamboman/mason-lspconfig.nvim",
     lazy = false,
+    version = "1.29.0",
   },
   {
     "neovim/nvim-lspconfig",
     lazy = false,
     config = function()
       local lsp_config = require("lspconfig")
-      require("mason").setup()
       require("mason-lspconfig").setup({
         ensure_installed = {
           -- dart sdk ships with LSP
           "astro",
           "tailwindcss",
-          "ts_ls",
+          -- "ts_ls",
+          "tsserver",
           "lua_ls",
         },
       })

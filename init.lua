@@ -2,6 +2,7 @@ require("config.lazy")
 require("config.remap")
 require("config.sets")
 
+vim.g.netrw_list_hide = ''
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
 local yank_group = augroup("HighlightYank", {})
