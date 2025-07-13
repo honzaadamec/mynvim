@@ -25,3 +25,7 @@ local opts = { noremap = true, silent = true }
 vim.keymap.set("v", "<leader>y", '"+y', opts)
 vim.keymap.set("n", "<leader>yp", ":let @+ = expand('%:p')<CR>", opts)
 
+vim.keymap.set('n', '<leader>hl', function()
+  vim.o.hlsearch = not vim.o.hlsearch
+  print("Highlight search: " .. (vim.o.hlsearch and "ON" or "OFF"))
+end, { desc = "Toggle highlight search" })

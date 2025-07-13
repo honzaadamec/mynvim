@@ -112,11 +112,32 @@ return {
 		"stevearc/oil.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
-			require("oil").setup({
-			})
+			require("oil").setup({})
 		end,
 		keys = {
 			{ "<leader>ee", "<cmd>Oil<CR>", desc = "Open parent directory" },
 		},
 	},
+
+	-- wilder cmd automoplete
+
+	{
+		"gelguy/wilder.nvim",
+		event = "CmdlineEnter",
+		dependencies = { "romgrk/fzy-lua-native" },
+		config = function()
+			local wilder = require("wilder")
+			wilder.setup({ modes = { ":", "/", "?" } })
+
+			wilder.set_option(
+				"renderer",
+				wilder.popupmenu_renderer({
+					highlighter = wilder.basic_highlighter(),
+					left = { " ", wilder.popupmenu_devicons() },
+					right = { " ", wilder.popupmenu_scrollbar() },
+				})
+			)
+		end,
+	},
+
 }
