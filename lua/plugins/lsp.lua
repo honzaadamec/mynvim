@@ -23,6 +23,9 @@ return {
 					"tailwindcss",
 					"tsserver",
 					"lua_ls",
+					"ansiblels",
+					"yamlls",
+					"eslint",
 				},
 			})
 
@@ -80,12 +83,12 @@ return {
 				signs = false,
 			})
 
-			local dartExcludedFolders = {
-				vim.fn.expand("$HOME/AppData/Local/Pub/Cache"),
-				vim.fn.expand("$HOME/.pub-cache"),
-				vim.fn.expand("/opt/homebrew/"),
-				vim.fn.expand("$HOME/development/flutter/"),
-			}
+			-- local dartExcludedFolders = {
+			-- 	vim.fn.expand("$HOME/AppData/Local/Pub/Cache"),
+			-- 	vim.fn.expand("$HOME/.pub-cache"),
+			-- 	vim.fn.expand("/opt/homebrew/"),
+			-- 	vim.fn.expand("$HOME/development/flutter/"),
+			-- }
 
 			-- 			lsp_config["dcmls"].setup({
 			--         capabilities = capabilities,
@@ -101,33 +104,42 @@ return {
 			--           },
 			--         })
 			--
-			lsp_config["dartls"].setup({
-				capabilities = capabilities,
-				cmd = {
-					"dart",
-					"language-server",
-					"--protocol=lsp",
-					-- "--port=8123",
-					-- "--instrumentation-log-file=/Users/robertbrunhage/Desktop/lsp-log.txt",
-				},
-				filetypes = { "dart" },
-				init_options = {
-					onlyAnalyzeProjectsWithOpenFiles = false,
-					suggestFromUnimportedLibraries = true,
-					closingLabels = true,
-					outline = false,
-					flutterOutline = false,
-				},
-				settings = {
-					dart = {
-						analysisExcludedFolders = dartExcludedFolders,
-						updateImportsOnRename = true,
-						completeFunctionCalls = true,
-						showTodos = true,
-					},
-				},
-			})
-
+			-- lsp_config["dartls"].setup({
+			-- 	capabilities = capabilities,
+			-- 	cmd = {
+			-- 		"dart",
+			-- 		"language-server",
+			-- 		"--protocol=lsp",
+			-- 		-- "--port=8123",
+			-- 		-- "--instrumentation-log-file=/Users/robertbrunhage/Desktop/lsp-log.txt",
+			-- 	},
+			-- 	filetypes = { "dart" },
+			-- 	init_options = {
+			-- 		onlyAnalyzeProjectsWithOpenFiles = true,
+			-- 		suggestFromUnimportedLibraries = true,
+			-- 		closingLabels = true,
+			-- 		outline = false,
+			-- 		flutterOutline = false,
+			-- 	},
+			-- 	color = {
+			-- 		enabled = true,
+			-- 		background = false,
+			-- 		foreground = false,
+			-- 		virtual_text = true,
+			-- 		virtual_text_str = "■",
+			-- 	},
+			-- 	settings = {
+			-- 		dart = {
+			-- 			lineLength = 120,
+			-- 			analysisExcludedFolders = dartExcludedFolders,
+			-- 			updateImportsOnRename = true,
+			-- 			completeFunctionCalls = true,
+			-- 			showTodos = true,
+			-- 			enableSnippets = true,
+			-- 		},
+			-- 	},
+			-- })
+			--
 			lsp_config.astro.setup({
 				capabilities = capabilities,
 			})
@@ -160,6 +172,41 @@ return {
 						-- },
 					},
 				},
+			})
+
+			-- Ansible Language Server
+			lsp_config.ansiblels.setup({
+				capabilities = capabilities,
+				settings = {
+					ansible = {
+						ansible = {
+							path = "ansible",
+						},
+						ansibleLint = {
+							enabled = true,
+							path = "ansible-lint",
+						},
+						python = {
+							interpreterPath = "python3",
+						},
+					},
+				},
+			})
+
+			lsp_config.yamlls.setup({
+				capabilities = capabilities,
+				settings = {
+					yaml = {
+						format = { enable = true },
+						validate = true,
+						completion = true,
+						hover = true,
+					},
+				},
+			})
+
+			lsp_config.eslint.setup({
+				capabilities = capabilities,
 			})
 
 			-- Tooltip for the lsp in bottom right

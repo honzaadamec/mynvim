@@ -30,8 +30,23 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-
 vim.g.netrw_keepj = ""
 vim.g.netrw_fastbrowse = 2
 
 vim.opt.splitright = true
+
+vim.opt.autoread = true
+
+local autoread_group = vim.api.nvim_create_augroup("AutoReadExternal", { clear = true })
+
+vim.api.nvim_create_autocmd(
+  { "FocusGained", "BufEnter", "CursorHold" },
+  {
+    group = autoread_group,
+    callback = function()
+      if not vim.bo.modified then
+        vim.cmd("checktime")
+      end
+    end,
+  }
+)

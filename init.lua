@@ -3,10 +3,12 @@ require("config.remap")
 require("config.sets")
 
 vim.g.netrw_list_hide = ''
+
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
 local yank_group = augroup("HighlightYank", {})
 local format_options_group = augroup("FormatOptions", { clear = true })
+vim.opt.termguicolors = true
 
 autocmd("TextYankPost", {
 	group = yank_group,
