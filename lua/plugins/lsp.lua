@@ -23,6 +23,7 @@ return {
 					"tailwindcss",
 					"tsserver",
 					"lua_ls",
+					"jsonls",
 					"ansiblels",
 					"yamlls",
 					"eslint",
@@ -172,6 +173,10 @@ return {
 						-- },
 					},
 				},
+			})
+
+			lsp_config.jsonls.setup({
+				capabilities = capabilities,
 			})
 
 			-- Ansible Language Server
